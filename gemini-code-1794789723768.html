@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自己紹介</title>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --text-main: #1f2937;
+    --text-sub: #4b5563;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    --border: #e5e7eb;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    line-height: 1.75;
+    padding: 1.5rem 1rem;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  header {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  .badge {
+    display: inline-block;
+    background-color: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--text-sub);
+    font-size: 0.95rem;
+  }
+
+  section {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid var(--accent-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  h2::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 1.1em;
+    background-color: var(--accent);
+    border-radius: 2px;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    font-size: 0.98rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .timeline-item {
+    border-left: 2px solid var(--border);
+    padding-left: 1.25rem;
+    margin-left: 0.25rem;
+  }
+
+  .timeline-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .step-card {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .step-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .step-text {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    line-height: 1.6;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+  }
+
+  .tag {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-size: 0.9rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 6px;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-sub);
+    font-size: 0.8rem;
+    padding: 1rem 0;
+  }
+
+  @media (max-width: 640px) {
+    body {
+      padding: 1rem 0.75rem;
+    }
+
+    header, section {
+      padding: 1.35rem 1.25rem;
+    }
+
+    h1 {
+      font-size: 1.45rem;
+    }
+
+    .step-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">大学1年生</span>
+      <h1>自己紹介</h1>
+      <p class="subtitle">これまでの経験と取り組みについてまとめています。</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>高校時代の経験</h2>
+        <div class="timeline-item">
+          <div class="timeline-label">部活動</div>
+          <div class="timeline-title">ロボット部 ハードウェア製作担当</div>
+          <p>
+            高校時代、ロボット部に所属しハードウェア製作を担当しました。3Dモデリングの知識を活用できると考えたことがきっかけです。
+          </p>
+          <div class="step-grid">
+            <div class="step-card">
+              <div class="step-title">課題</div>
+              <div class="step-text">
+                地面のボールを拾い上げてバスケットゴールの高さまで運ぶ機構において、ボールが柔らかいために詰まりが発生していました。
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-title">工夫・行動</div>
+              <div class="step-text">
+                棒によるエレベーター形式ではなく、昇降システム全体で張力を維持できるベルト駆動の摩擦システムを自作しました。
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-title">結果</div>
+              <div class="step-text">
+                昇降時のボールの詰まりを減らすことができました。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>経験・知識</h2>
+        <ul class="tag-list">
+          <li class="tag">3Dモデリング</li>
+          <li class="tag">ハードウェア製作</li>
+          <li class="tag">機構設計（ベルト駆動システム）</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>自己紹介ページ</p>
+    </footer>
+  </div>
+</body>
+</html>
