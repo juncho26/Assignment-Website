@@ -17,6 +17,7 @@
     --text-main: #1f2937;
     --text-sub: #4b5563;
     --accent: #2563eb;
+    --accent-hover: #1d4ed8;
     --accent-light: #eff6ff;
     --border: #e5e7eb;
   }
@@ -43,6 +44,15 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   }
 
+  .header-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
   .badge {
     display: inline-block;
     background-color: var(--accent-light);
@@ -51,7 +61,29 @@
     font-weight: 700;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    margin-bottom: 0.75rem;
+  }
+
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  }
+
+  .github-link:hover,
+  .github-link:focus-visible {
+    background-color: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent-hover);
+    outline: none;
   }
 
   h1 {
@@ -123,31 +155,70 @@
     margin-bottom: 0.75rem;
   }
 
-  .step-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  /* Accessible Accordion Menus for the 3 Aspects */
+  .accordion-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
     margin-top: 1.25rem;
   }
 
-  .step-card {
+  details.aspect-menu {
     background-color: var(--bg);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 1rem;
+    overflow: hidden;
+    transition: border-color 0.2s;
   }
 
-  .step-title {
-    font-size: 0.85rem;
+  details.aspect-menu[open] {
+    border-color: var(--accent);
+  }
+
+  details.aspect-menu summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--accent);
-    margin-bottom: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
   }
 
-  .step-text {
-    font-size: 0.9rem;
+  details.aspect-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details.aspect-menu summary:hover {
+    background-color: var(--accent-light);
+  }
+
+  details.aspect-menu summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  details.aspect-menu summary::after {
+    content: "＋";
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  details.aspect-menu[open] summary::after {
+    content: "－";
+  }
+
+  .aspect-content {
+    padding: 0.85rem 1.1rem 1rem;
+    font-size: 0.95rem;
     color: var(--text-main);
-    line-height: 1.6;
+    line-height: 1.65;
+    background-color: var(--surface);
+    border-top: 1px solid var(--border);
   }
 
   .tag-list {
@@ -185,17 +256,18 @@
     h1 {
       font-size: 1.45rem;
     }
-
-    .step-grid {
-      grid-template-columns: 1fr;
-    }
   }
 </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <span class="badge">大学1年生</span>
+      <div class="header-top">
+        <span class="badge">大学1年生</span>
+        <a class="github-link" href="https://github.com/juncho26/Assignment-Website/tree/main" target="_blank" rel="noopener noreferrer" aria-label="GitHubリポジトリ（新しいタブで開きます）">
+          GitHub リポジトリ ↗
+        </a>
+      </div>
       <h1>自己紹介</h1>
       <p class="subtitle">これまでの経験と取り組みについてまとめています。</p>
     </header>
@@ -209,25 +281,28 @@
           <p>
             高校時代、ロボット部に所属しハードウェア製作を担当しました。3Dモデリングの知識を活用できると考えたことがきっかけです。
           </p>
-          <div class="step-grid">
-            <div class="step-card">
-              <div class="step-title">課題</div>
-              <div class="step-text">
+
+          <div class="accordion-group" role="region" aria-label="取り組みの詳細メニュー">
+            <details class="aspect-menu" open>
+              <summary>1. 課題</summary>
+              <div class="aspect-content">
                 地面のボールを拾い上げてバスケットゴールの高さまで運ぶ機構において、ボールが柔らかいために詰まりが発生していました。
               </div>
-            </div>
-            <div class="step-card">
-              <div class="step-title">工夫・行動</div>
-              <div class="step-text">
+            </details>
+
+            <details class="aspect-menu">
+              <summary>2. 工夫・行動</summary>
+              <div class="aspect-content">
                 棒によるエレベーター形式ではなく、昇降システム全体で張力を維持できるベルト駆動の摩擦システムを自作しました。
               </div>
-            </div>
-            <div class="step-card">
-              <div class="step-title">結果</div>
-              <div class="step-text">
+            </details>
+
+            <details class="aspect-menu">
+              <summary>3. 結果</summary>
+              <div class="aspect-content">
                 昇降時のボールの詰まりを減らすことができました。
               </div>
-            </div>
+            </details>
           </div>
         </div>
       </section>
