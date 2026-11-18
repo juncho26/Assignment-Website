@@ -1,3 +1,3 @@
 # Assignment-Website
 
-This website was created for a class called Jyouhou Kiso Enshu, where the assignment was to ask Google Gemini to build a website.
+This website was created as an assignment for a class, where we were tasked with asking Google Gemini to create a website.
